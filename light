@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    src="pbpaste"
+else
+    src="cat $1"
+fi
+
+$src | highlight -O rtf \
+    --syntax java \
+    --font "SF Mono" \
+    --style intellij-idea \
+    --config-file ~/proyectos/highlight/intellij-idea.theme \
+    --font-size 48 |
+    pbcopy
